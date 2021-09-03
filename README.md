@@ -6,22 +6,22 @@ In learning how to do this with nested for loops we noticed that the code run ti
 This led to us refactoring our code to get faster results.
 
 ###Results
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Boot_run.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Boot_run.png)
 
 This screenshot shows our initial run time when we first open Excel for the year 2018.
 
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/startcode_2017.png)
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/startcode_2018.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/startcode_2017.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/startcode_2018.png)
 
 The two screenshot's above show the run times for our original code at around 0.65 seconds. This is a pretty high run time for a small ammount of code.
 Lets compare this time with our refactored code!
 
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_Boot_run.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_Boot_run.png)
 
 Here is our inital run time for the refactored code. Under 0.1 seconds! this is much faster!
 
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_2017.png)
-![alt text] (https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_2018.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_2017.png)
+![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Refactor_2018.png)
 
 We were able to get the run times consistently below 0.08 seconds. It may not seem like much, but we will give a very strong real life application in our summary on just how significant this is.
 
