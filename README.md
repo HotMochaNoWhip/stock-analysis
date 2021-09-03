@@ -30,41 +30,42 @@ When we were looping through the tickers we then looped through the rows of data
 This method caused us to output our code within the nested loop as well, most likely increasing run time.
 
 Our code looked a bit like this
- 
-'	For i = 0 To 11'
-'        ticker = tickers(i)'
-'        totalVolume = 0'
+
+'''
+	   For i = 0 To 11
+        ticker = tickers(i)
+        totalVolume = 0
         
-'        Worksheets(yearValue).Activate'
-'        For j = 2 To RowCount'
+        Worksheets(yearValue).Activate
+        For j = 2 To RowCount
             
-'            If Cells(j, 1).Value = ticker Then'
+            If Cells(j, 1).Value = ticker Then
             
-'                totalVolume = totalVolume + Cells(j, 8).Value'
+                totalVolume = totalVolume + Cells(j, 8).Value
             
-'            End If'
+            End If'
             
-'            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then'
+            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                 
-'                startingPrice = Cells(j, 6).Value'
+                startingPrice = Cells(j, 6).Value'
             
-'            End If'
+            End If'
             
-'            If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then'
+            If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                 
-'                endingPrice = Cells(j, 6).Value'
+                endingPrice = Cells(j, 6).Value'
                 
-'            End If'
+            End If
             
-'        Next j'
+        Next j
         
+        Worksheets("All Stocks Analysis").Activate'
+        Cells(4 + i, 1).Value = ticker'
+        Cells(4 + i, 2).Value = totalVolume'
+        Cells(4 + i, 3).Value = (endingPrice / startingPrice) - 1
         
-'        Worksheets("All Stocks Analysis").Activate'
-'        Cells(4 + i, 1).Value = ticker'
-'        Cells(4 + i, 2).Value = totalVolume'
-'        Cells(4 + i, 3).Value = (endingPrice / startingPrice) - 1'
-        
-'   Next i'
+    Next i
+'''
 
 While this worked and allowed us to grab all the data with multiple if statements it caused multiple changing values simultaneously.
 
@@ -72,38 +73,40 @@ When refractored, we instead had 23 loops running independently. One for the tic
 
 Refactored our code looks like this instead. While it is written longer, the computation takes less time to execute.
 
-'	For j = 0 To 11'
-'        tickerVolumes(j) = 0'
-'    Next j'
+'''
+   	For j = 0 To 11
+        tickerVolumes(j) = 0
+    Next j
         
-'    For i = 2 To RowCount'
+    For i = 2 To RowCount
     
-'        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value'
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
         
         
-'        If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then'
+        If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
         
-'            tickerStartingPrices(tickerIndex) = Cells(i, 6)'
-'        End If'
+            tickerStartingPrices(tickerIndex) = Cells(i, 6)
+        End If
             
-'        If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1) = tickers(tickerIndex) Then'
+        If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1) = tickers(tickerIndex) Then
         
-'            tickerEndingPrices(tickerIndex) = Cells(i, 6)'
+            tickerEndingPrices(tickerIndex) = Cells(i, 6)
            
-'            tickerIndex = tickerIndex + 1'
+            tickerIndex = tickerIndex + 1
             
-'        End If'
+        End If
     
-'    Next i'
+    Next i
     
-'    For i = 0 To 11'
+    For i = 0 To 11
         
-'        Worksheets("All Stocks Analysis").Activate'
-'        Cells(4 + i, 1).Value = tickers(i)'
-'        Cells(4 + i, 2).Value = tickerVolumes(i)'
-'        Cells(4 + i, 3).Value = (tickerEndingPrices(i) / tickerStartingPrices(i)) - 1'
+        Worksheets("All Stocks Analysis").Activate
+        Cells(4 + i, 1).Value = tickers(i)
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        Cells(4 + i, 3).Value = (tickerEndingPrices(i) / tickerStartingPrices(i)) - 1
         
-'    Next i'
+    Next i
+'''
 
 ### Summary
 
