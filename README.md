@@ -1,11 +1,11 @@
 # stock-analysis with VBA
 
-##Overview of Project
+## Overview of Project
 This project was designed to filter data on stocks by year to determine the Total Daily Volume and Return for a desired year organized by Ticker.
 In learning how to do this with nested for loops we noticed that the code run time seemed to take more time than we would like.
 This led to us refactoring our code to get faster results.
 
-###Results
+### Results
 ![alt text](https://github.com/HotMochaNoWhip/stock-analysis/blob/main/Resources/Boot_run.png)
 
 This screenshot shows our initial run time when we first open Excel for the year 2018.
@@ -105,7 +105,7 @@ Refactored our code looks like this instead. While it is written longer, the com
         
 '    Next i'
 
-###Summary
+### Summary
 
 If you do not need to refactor the code and you are getting desired results then refrain from doing so.
 The code might take a bit longer to execute, but it takes less time to write and is condensed.
