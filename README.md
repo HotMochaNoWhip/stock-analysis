@@ -32,7 +32,8 @@ This method caused us to output our code within the nested loop as well, most li
 Our code looked a bit like this
 
 '''
-	   For i = 0 To 11
+
+    For i = 0 To 11
         ticker = tickers(i)
         totalVolume = 0
         
@@ -65,6 +66,7 @@ Our code looked a bit like this
         Cells(4 + i, 3).Value = (endingPrice / startingPrice) - 1
         
     Next i
+    
 '''
 
 While this worked and allowed us to grab all the data with multiple if statements it caused multiple changing values simultaneously.
@@ -74,7 +76,8 @@ When refractored, we instead had 23 loops running independently. One for the tic
 Refactored our code looks like this instead. While it is written longer, the computation takes less time to execute.
 
 '''
-   	For j = 0 To 11
+
+    For j = 0 To 11
         tickerVolumes(j) = 0
     Next j
         
@@ -106,6 +109,7 @@ Refactored our code looks like this instead. While it is written longer, the com
         Cells(4 + i, 3).Value = (tickerEndingPrices(i) / tickerStartingPrices(i)) - 1
         
     Next i
+    
 '''
 
 ### Summary
