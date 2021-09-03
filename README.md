@@ -71,9 +71,9 @@ Our code looked a bit like this
 
 While this worked and allowed us to grab all the data with multiple if statements it caused multiple changing values simultaneously.
 
-When refractored, we instead had 23 loops running independently. One for the tickerVolume and another to loop over the rows and the last to output the data.
+When refractored, we instead had three loops running independently. One for the tickerVolume, another to loop over the rows, and the last to output the data.
 
-Refactored our code looks like this instead. While it is written longer, the computation takes less time to execute.
+Refactored our code looks like this instead. While it is written longer (had to define more variables), the computation takes less time to execute.
 
 '''
 
